@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <global-method-security pre-post-annotations="enabled" />
+
+    <http pattern="/loggedout" security="none"/>
+    <http pattern="/ok.jsp" security="none"/>
+ 
+	<http auto-config='true'>
+      <intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" requires-channel="any" />
+	  <intercept-url pattern="/**" access="ROLE_ADMIN" requires-channel="any" />
+
+	  <logout logout-url="/j_spring_security_logout" logout-success-url="/loggedout" />
+	</http>
+<!-- lenovopush_2015 -->
+    <authentication-manager>
+        <authentication-provider>
+            <password-encoder hash="md5"/>
+            <user-service>
+            	<user name="admin" password="f0abb520ef7abb83a71eaeb1cb325424" authorities="ROLE_ADMIN"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>

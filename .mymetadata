@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="zk-admin"
+  id="myeclipse.1423205683038"
+  context-root="/zk-admin"
+  j2ee-spec="5.0"
+  archive="zk-admin.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
